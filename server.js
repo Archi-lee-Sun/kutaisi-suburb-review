@@ -10,26 +10,21 @@ const server = http.createServer(async (req , res) => {
         res.writeHead(200 , {'content-type' : 'text/html'}) ;
         res.end(html)
 
-     } else if(req.url.startsWith('/suburb')) {
+     } else if(req.url.startsWith('/suburb') && Number(req.url.split('?id=')[1]) >= 1 && Number(req.url.split('?id=')[1]) <= 8) {
         const html = await fs.readFile('./public/suburb.html' , 'utf-8')
 
         res.writeHead(200 , {'content-type' : 'text/html'})
         res.end(html)
 
      } else if(req.url.startsWith('/images/')){
-
          const image = await fs.readFile('.' + req.url);
 
-         let contentType = 'image/jpeg';
-         if (req.url.endsWith('.png')) contentType = 'image/png';
-         if (req.url.endsWith('.gif')) contentType = 'image/gif';
-         if (req.url.endsWith('.webp')) contentType = 'image/webp';
-
-         res.writeHead(200, { 'content-type': contentType });
+         res.writeHead(200, { 'content-type': 'image/jpeg' });
          res.end(image);     
                                
      } else {
         const notFound = await fs.readFile('./public/404.html' , 'utf-8')
+
         res.writeHead(404 , {'content-type' : 'text/html'})
         res.end(notFound)
      } 
