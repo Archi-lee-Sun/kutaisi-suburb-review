@@ -1,0 +1,54 @@
+[
+    {
+        "id" : "1",
+        "name" : "ზასტავა" ,
+        "image" : "kutaisi-suburb-review/images/zastava.jpg"
+    }, 
+
+    {
+        "id" : "2" ,
+        "name" : "საფიჩხია" , 
+        "image" : "kutaisi-suburb-review/images/safichxia.jpg"
+        
+    }, 
+
+    {
+        "id" : "3",
+        "name" : "გორა" ,
+        "image" : "kutaisi-suburb-review/images/gora.jpg"
+    }, 
+
+    {
+        "id" : "4" ,
+        "name" : "ჭომა" , 
+        "image" : "kutaisi-suburb-review/images/woma.jpg"
+        
+    },
+
+    {
+        "id" : "5",
+        "name" : "ნიკეა" ,
+        "image" : "kutaisi-suburb-review/images/nikea.jpg"
+    }, 
+
+    {
+        "id" : "6" ,
+        "name" : "ავანგარდი" , 
+        "image" : "kutaisi-suburb-review/images/avangardi.png"
+        
+    },
+
+        {
+        "id" : "7" ,
+        "name" : "პასილოკი" , 
+        "image" : "kutaisi-suburb-review/images/pasiloki.jpg"
+        
+    },
+
+        {
+        "id" : "8" ,
+        "name" : "ავტოქარხანა" , 
+        "image" : "kutaisi-suburb-review/images/avtoqarxana.jpg"
+        
+    }
+]
