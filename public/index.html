@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kutaisi Suburb Review</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background-image: url("/images/background.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Raleway', sans-serif;
+        }
+
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 0;
+        }
+
+
+        .page-wrapper {
+            position: relative;
+            z-index: 1;
+            padding: 60px 40px 80px;
+        }
+
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        header .subtitle {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 300;
+            font-size: 13px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 16px;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: clamp(42px, 6vw, 80px);
+            color: #ffffff;
+            line-height: 1.1;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+        }
+
+        header h1 span {
+            color: #e8c97e;
+        }
+
+        .header-line {
+            width: 60px;
+            height: 2px;
+            background: #e8c97e;
+            margin: 24px auto 0;
+        }
+
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+
+        .card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+
+
+            border: 1px solid rgba(232, 201, 126, 0.2);
+
+
+            opacity: 0;
+            transform: translateY(24px);
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+
+        .card:nth-child(1) { animation-delay: 0.05s; }
+        .card:nth-child(2) { animation-delay: 0.12s; }
+        .card:nth-child(3) { animation-delay: 0.19s; }
+        .card:nth-child(4) { animation-delay: 0.26s; }
+        .card:nth-child(5) { animation-delay: 0.33s; }
+        .card:nth-child(6) { animation-delay: 0.40s; }
+        .card:nth-child(7) { animation-delay: 0.47s; }
+        .card:nth-child(8) { animation-delay: 0.54s; }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .card::after {
+            content: none;
+        }
+
+
+
+        .card:hover img {
+            transform: scale(1.07);
+        }
+
+        .card:hover {
+            border-color: rgba(232, 201, 126, 0.6);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+        }
+
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            color: rgba(255,255,255,0.35);
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+
+        @media (max-width: 900px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .page-wrapper {
+                padding: 40px 20px 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+    <header>
+        <h1>Kutaisi <span>Suburbs</span></h1>
+        <div class="header-line"></div>
+    </header>
+
+    <div class="grid">
+
+        <a class="card" href="/suburb?id=1">
+            <img src="/images/avangardi.png" alt="Avangardi">
+        </a>
+
+        <a class="card" href="/suburb?id=2">
+            <img src="/images/avtoqarxana.jpg" alt="Avtoqarxana">
+        </a>
+
+        <a class="card" href="/suburb?id=3">
+            <img src="/images/gora.jpg" alt="Gora">
+        </a>
+
+        <a class="card" href="/suburb?id=4">
+            <img src="/images/nikea.jpg" alt="Nikea">
+        </a>
+
+        <a class="card" href="/suburb?id=5">
+            <img src="/images/pasiloki.jpg" alt="Pasiloki">
+        </a>
+
+        <a class="card" href="/suburb?id=6">
+            <img src="/images/safichxia.jpg" alt="Safichxia">
+        </a>
+
+        <a class="card" href="/suburb?id=7">
+            <img src="/images/woma.jpg" alt="Woma">
+        </a>
+
+        <a class="card" href="/suburb?id=8">
+            <img src="/images/zastava.jpg" alt="Zastava">
+        </a>
+
+    </div>
+</div>
+
+</body>
+</html>
