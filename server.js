@@ -31,6 +31,16 @@ const server = http.createServer(async (req , res) => {
          res.writeHead(200, { 'content-type': 'application/json' });
          res.end(JSON.stringify(suburb));
 
+     } else if(req.url.startsWith('/api/reviews/')){
+         const suburbId = req.url.split('/api/reviews/')[1];
+
+         const data = await fs.readFile('./data/reviews.json' , 'utf-8');
+         const reviews = JSON.parse(data);
+         const filtered = reviews.filter(r => r.suburbId === suburbId)
+
+         res.writeHead(200, { 'content-type': 'application/json' });
+         res.end(JSON.stringify(filtered))
+
      } else if(req.url === '/suburb.js'){
          const js = await fs.readFile('./public/suburb.js' , 'utf-8')
          
@@ -43,6 +53,7 @@ const server = http.createServer(async (req , res) => {
         res.writeHead(404 , {'content-type' : 'text/html'})
         res.end(notFound)
      } 
+
    } catch(error) {
       console.error('Server error:' , error);
       res.writeHead(500);

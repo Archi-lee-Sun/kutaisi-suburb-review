@@ -1,3 +1,17 @@
 [
-    
+    {
+        "id": "1",
+        "suburbId": "1",
+        "author": {
+            "name": "გიორგი"
+        },
+        "ratings": {
+            "lighting": 4,
+            "roads": 3,
+            "neighborhood": 5,
+            "cleanliness": 4
+        },
+        "comment": "კარგი უბანია, მაგრამ გზები საჭიროებს რემონტს",
+        "createdAt": "2025-03-08"
+    }
 ]
