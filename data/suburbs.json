@@ -1,6 +1,6 @@
 [
     {
-        "id" : "1",
+        "id" : "8",
         "name" : "ზასტავა" ,
         "image" : "zastava.jpg" ,
         "reviewCount": 0,
@@ -13,7 +13,7 @@
     }, 
 
     {
-        "id" : "2" ,
+        "id" : "6" ,
         "name" : "საფიჩხია" , 
         "image" : "safichxia.jpg",
         "reviewCount": 0,
@@ -40,7 +40,7 @@
     }, 
 
     {
-        "id" : "4" ,
+        "id" : "7" ,
         "name" : "ჭომა" , 
         "image" : "woma.jpg",
         "reviewCount": 0,
@@ -54,7 +54,7 @@
     },
 
     {
-        "id" : "5",
+        "id" : "4",
         "name" : "ნიკეა" ,
         "image" : "nikea.jpg" ,
         "reviewCount": 0,
@@ -67,7 +67,7 @@
     }, 
 
     {
-        "id" : "6" ,
+        "id" : "1" ,
         "name" : "ავანგარდი" , 
         "image" : "avangardi.png" , 
         "reviewCount": 0,
@@ -81,7 +81,7 @@
     },
 
     {
-        "id" : "7" ,
+        "id" : "5" ,
         "name" : "პასილოკი" , 
         "image" : "pasiloki.jpg" ,
         "reviewCount": 0,
@@ -95,7 +95,7 @@
     },
 
     {
-        "id" : "8" ,
+        "id" : "2" ,
         "name" : "ავტოქარხანა" , 
         "image" : "avtoqarxana.jpg" ,
         "reviewCount": 0,

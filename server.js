@@ -1,7 +1,6 @@
 const http = require('http'); 
 const fs = require('fs/promises');
 
-
 const server = http.createServer(async (req , res) => {
    try {
       if(req.url === '/') {
@@ -22,6 +21,22 @@ const server = http.createServer(async (req , res) => {
          res.writeHead(200, { 'content-type': 'image/jpeg' });
          res.end(image);     
                                
+     } else if(req.url.startsWith('/api/suburbs/')){
+         const id = req.url.split('/api/suburbs/')[1];
+
+         const data = await fs.readFile('./data/suburbs.json', 'utf-8');
+         const suburbs = JSON.parse(data);
+         const suburb = suburbs.find(s => s.id === id);
+
+         res.writeHead(200, { 'content-type': 'application/json' });
+         res.end(JSON.stringify(suburb));
+
+     } else if(req.url === '/suburb.js'){
+         const js = await fs.readFile('./public/suburb.js' , 'utf-8')
+         
+         res.writeHead(200, { 'content-type': 'text/javascript' })
+         res.end(js)
+         
      } else {
         const notFound = await fs.readFile('./public/404.html' , 'utf-8')
 

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suburb Review</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --gold: #e8c97e;
+            --gold-dim: rgba(232, 201, 126, 0.3);
+            --dark: #0f0f0f;
+            --card: rgba(255,255,255,0.04);
+            --border: rgba(255,255,255,0.08);
+            --text: #f0ede8;
+            --muted: rgba(240,237,232,0.45);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            background-color: #111;
+            background-image: url("/images/background.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Raleway', sans-serif;
+            color: var(--text);
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.72);
+            z-index: 0;
+        }
+
+        .page {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 48px 32px 80px;
+        }
+
+        /* ── BACK LINK ── */
+        .back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            transition: color 0.2s;
+        }
+        .back:hover { color: var(--gold); }
+
+        /* ── SUBURB NAME ── */
+        #suburb-name {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 36px;
+            line-height: 1;
+        }
+
+        /* ── TOP SECTION: photo + ratings ── */
+        .top-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-bottom: 48px;
+            align-items: start;
+        }
+
+        /* photo */
+        .photo-wrap {
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            aspect-ratio: 4/3;
+        }
+
+        #suburb-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ratings card */
+        .ratings-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px;
+            backdrop-filter: blur(8px);
+        }
+
+        .ratings-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: var(--gold);
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .rating-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .rating-row:last-child { border-bottom: none; }
+
+        .rating-label {
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .rating-value {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stars-display {
+            font-size: 16px;
+            letter-spacing: 2px;
+            color: var(--gold);
+        }
+
+        .avg-number {
+            font-size: 13px;
+            color: var(--muted);
+            min-width: 28px;
+            text-align: right;
+        }
+
+        .no-reviews-note {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 16px;
+            font-style: italic;
+        }
+
+        /* ── DIVIDER ── */
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 48px 0;
+        }
+
+        /* ── FORM SECTION ── */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 28px;
+            color: #fff;
+        }
+
+        .form-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 32px;
+            backdrop-filter: blur(8px);
+            margin-bottom: 48px;
+        }
+
+        /* star rating inputs */
+        .form-ratings {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .form-rating-group label {
+            display: block;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* CSS star rating trick */
+        .star-input {
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 4px;
+        }
+
+        .star-input input {
+            display: none;
+        }
+
+        .star-input label {
+            font-size: 26px;
+            color: rgba(255,255,255,0.15);
+            cursor: pointer;
+            transition: color 0.15s;
+            letter-spacing: 0;
+            margin-bottom: 0;
+        }
+
+        .star-input input:checked ~ label,
+        .star-input label:hover,
+        .star-input label:hover ~ label {
+            color: var(--gold);
+        }
+
+        /* text inputs */
+        .form-row {
+            margin-bottom: 20px;
+        }
+
+        .form-row label {
+            display: block;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .form-row input,
+        .form-row textarea {
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 14px 16px;
+            color: var(--text);
+            font-family: 'Raleway', sans-serif;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+            resize: vertical;
+        }
+
+        .form-row input:focus,
+        .form-row textarea:focus {
+            border-color: var(--gold-dim);
+        }
+
+        .form-row input::placeholder,
+        .form-row textarea::placeholder {
+            color: rgba(255,255,255,0.2);
+        }
+
+        .submit-btn {
+            background: var(--gold);
+            color: #111;
+            border: none;
+            border-radius: 8px;
+            padding: 14px 36px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.15s;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.88;
+            transform: translateY(-1px);
+        }
+
+        /* ── REVIEWS SECTION ── */
+        #reviews-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .review-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px 28px;
+            backdrop-filter: blur(6px);
+            animation: fadeUp 0.4s ease both;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 14px;
+        }
+
+        .review-author {
+            font-weight: 600;
+            font-size: 15px;
+            color: #fff;
+        }
+
+        .review-date {
+            font-size: 11px;
+            color: var(--muted);
+            letter-spacing: 1px;
+        }
+
+        .review-ratings {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+
+        .review-rating-item {
+            font-size: 11px;
+            color: var(--muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .review-rating-item span {
+            color: var(--gold);
+            margin-left: 4px;
+        }
+
+        .review-comment {
+            font-size: 14px;
+            color: rgba(240,237,232,0.7);
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .empty-reviews {
+            text-align: center;
+            color: var(--muted);
+            font-size: 14px;
+            padding: 40px 0;
+            font-style: italic;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 700px) {
+            .top-section { grid-template-columns: 1fr; }
+            .form-ratings { grid-template-columns: 1fr; }
+            .page { padding: 32px 20px 60px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+
+    <a class="back" href="/">← Back to suburbs</a>
+
+    
+   
+
+
+    <div class="top-section">
+
+        <div class="photo-wrap">
+            <img id="suburb-image" src="" alt="Suburb photo">
+        </div>
+
+        <div class="ratings-card">
+            <h2>Average Ratings</h2>
+
+            <div class="rating-row">
+                <span class="rating-label">Lighting</span>
+                <div class="rating-value">
+                    <span class="stars-display" id="stars-lighting">☆☆☆☆☆</span>
+                    <span class="avg-number" id="avg-lighting">—</span>
+                </div>
+            </div>
+
+            <div class="rating-row">
+                <span class="rating-label">Roads</span>
+                <div class="rating-value">
+                    <span class="stars-display" id="stars-roads">☆☆☆☆☆</span>
+                    <span class="avg-number" id="avg-roads">—</span>
+                </div>
+            </div>
+
+            <div class="rating-row">
+                <span class="rating-label">Neighborhood</span>
+                <div class="rating-value">
+                    <span class="stars-display" id="stars-neighborhood">☆☆☆☆☆</span>
+                    <span class="avg-number" id="avg-neighborhood">—</span>
+                </div>
+            </div>
+
+            <div class="rating-row">
+                <span class="rating-label">Cleanliness</span>
+                <div class="rating-value">
+                    <span class="stars-display" id="stars-cleanliness">☆☆☆☆☆</span>
+                    <span class="avg-number" id="avg-cleanliness">—</span>
+                </div>
+            </div>
+
+            <p class="no-reviews-note" id="no-reviews-note" style="display:none;">
+                No reviews yet — be the first!
+            </p>
+        </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- review form -->
+    <h2 class="section-title">Leave a Review</h2>
+
+    <div class="form-card">
+        <form id="review-form">
+
+            <!-- star inputs for each category -->
+            <div class="form-ratings">
+
+                <div class="form-rating-group">
+                    <label>Lighting</label>
+                    <div class="star-input">
+                        <input type="radio" name="lighting" id="l5" value="5"><label for="l5">★</label>
+                        <input type="radio" name="lighting" id="l4" value="4"><label for="l4">★</label>
+                        <input type="radio" name="lighting" id="l3" value="3"><label for="l3">★</label>
+                        <input type="radio" name="lighting" id="l2" value="2"><label for="l2">★</label>
+                        <input type="radio" name="lighting" id="l1" value="1"><label for="l1">★</label>
+                    </div>
+                </div>
+
+                <div class="form-rating-group">
+                    <label>Roads</label>
+                    <div class="star-input">
+                        <input type="radio" name="roads" id="r5" value="5"><label for="r5">★</label>
+                        <input type="radio" name="roads" id="r4" value="4"><label for="r4">★</label>
+                        <input type="radio" name="roads" id="r3" value="3"><label for="r3">★</label>
+                        <input type="radio" name="roads" id="r2" value="2"><label for="r2">★</label>
+                        <input type="radio" name="roads" id="r1" value="1"><label for="r1">★</label>
+                    </div>
+                </div>
+
+                <div class="form-rating-group">
+                    <label>Neighborhood</label>
+                    <div class="star-input">
+                        <input type="radio" name="neighborhood" id="n5" value="5"><label for="n5">★</label>
+                        <input type="radio" name="neighborhood" id="n4" value="4"><label for="n4">★</label>
+                        <input type="radio" name="neighborhood" id="n3" value="3"><label for="n3">★</label>
+                        <input type="radio" name="neighborhood" id="n2" value="2"><label for="n2">★</label>
+                        <input type="radio" name="neighborhood" id="n1" value="1"><label for="n1">★</label>
+                    </div>
+                </div>
+
+                <div class="form-rating-group">
+                    <label>Cleanliness</label>
+                    <div class="star-input">
+                        <input type="radio" name="cleanliness" id="c5" value="5"><label for="c5">★</label>
+                        <input type="radio" name="cleanliness" id="c4" value="4"><label for="c4">★</label>
+                        <input type="radio" name="cleanliness" id="c3" value="3"><label for="c3">★</label>
+                        <input type="radio" name="cleanliness" id="c2" value="2"><label for="c2">★</label>
+                        <input type="radio" name="cleanliness" id="c1" value="1"><label for="c1">★</label>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- author name -->
+            <div class="form-row">
+                <label for="author-name">Your Name</label>
+                <input type="text" id="author-name" placeholder="e.g. გიორგი" maxlength="60">
+            </div>
+
+            <!-- optional comment -->
+            <div class="form-row">
+                <label for="comment">Comment <span style="opacity:0.4; font-size:10px;">(optional)</span></label>
+                <textarea id="comment" rows="4" placeholder="Share your thoughts about this suburb..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Review</button>
+
+        </form>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- reviews list — filled by suburb.js -->
+    <h2 class="section-title">What People Say</h2>
+    <div id="reviews-container">
+        <p class="empty-reviews">Loading reviews...</p>
+    </div>
+
+</div>
+
+<script src="/suburb.js"></script>
+</body>
+</html>
