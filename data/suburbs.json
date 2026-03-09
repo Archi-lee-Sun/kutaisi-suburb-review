@@ -2,53 +2,109 @@
     {
         "id" : "1",
         "name" : "ზასტავა" ,
-        "image" : "kutaisi-suburb-review/images/zastava.jpg"
+        "image" : "zastava.jpg" ,
+        "reviewCount": 0,
+        "ratings": {
+            "lighting": 0,
+            "roads": 0,
+            "neighborhood": 0,
+            "cleanliness": 0
+        }
     }, 
 
     {
         "id" : "2" ,
         "name" : "საფიჩხია" , 
-        "image" : "kutaisi-suburb-review/images/safichxia.jpg"
+        "image" : "safichxia.jpg",
+        "reviewCount": 0,
+        "ratings": {
+            "lighting": 0,
+            "roads": 0,
+            "neighborhood": 0,
+            "cleanliness": 0
+        }
         
     }, 
 
     {
         "id" : "3",
         "name" : "გორა" ,
-        "image" : "kutaisi-suburb-review/images/gora.jpg"
+        "image" : "gora.jpg" ,
+        "reviewCount": 0,
+        "ratings": {
+            "lighting": 0,
+            "roads": 0,
+            "neighborhood": 0,
+            "cleanliness": 0
+        }
     }, 
 
     {
         "id" : "4" ,
         "name" : "ჭომა" , 
-        "image" : "kutaisi-suburb-review/images/woma.jpg"
+        "image" : "woma.jpg",
+        "reviewCount": 0,
+        "ratings": {
+            "lighting": 0,
+            "roads": 0,
+            "neighborhood": 0,
+            "cleanliness": 0
+        }
         
     },
 
     {
         "id" : "5",
         "name" : "ნიკეა" ,
-        "image" : "kutaisi-suburb-review/images/nikea.jpg"
+        "image" : "nikea.jpg" ,
+        "reviewCount": 0,
+        "ratings": {
+            "lighting": 0,
+            "roads": 0,
+            "neighborhood": 0,
+            "cleanliness": 0
+        }
     }, 
 
     {
         "id" : "6" ,
         "name" : "ავანგარდი" , 
-        "image" : "kutaisi-suburb-review/images/avangardi.png"
+        "image" : "avangardi.png" , 
+        "reviewCount": 0,
+        "ratings": {
+            "lighting": 0,
+            "roads": 0,
+            "neighborhood": 0,
+            "cleanliness": 0
+        }
         
     },
 
-        {
+    {
         "id" : "7" ,
         "name" : "პასილოკი" , 
-        "image" : "kutaisi-suburb-review/images/pasiloki.jpg"
+        "image" : "pasiloki.jpg" ,
+        "reviewCount": 0,
+        "ratings": {
+            "lighting": 0,
+            "roads": 0,
+            "neighborhood": 0,
+            "cleanliness": 0
+        }
         
     },
 
-        {
+    {
         "id" : "8" ,
         "name" : "ავტოქარხანა" , 
-        "image" : "kutaisi-suburb-review/images/avtoqarxana.jpg"
+        "image" : "avtoqarxana.jpg" ,
+        "reviewCount": 0,
+        "ratings": {
+            "lighting": 0,
+            "roads": 0,
+            "neighborhood": 0,
+            "cleanliness": 0
+        }
         
     }
 ]
