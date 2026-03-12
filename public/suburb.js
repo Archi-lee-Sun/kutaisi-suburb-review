@@ -53,3 +53,56 @@ function displayReviews(reviews){
         container.appendChild(card)
     });
 }
+
+
+document.getElementById("review-form").addEventListener('submit' , function(event){
+    event.preventDefault();
+    handleSubmit();
+})
+
+
+function handleSubmit(){
+
+
+    const lighting = document.querySelector('input[name = "lighting"]:checked').value;
+    const roads = document.querySelector('input[name = "roads"]:checked').value;
+    const neighborhood = document.querySelector('input[name = "neighborhood"]:checked').value;
+    const cleanliness = document.querySelector('input[name = "cleanliness"]:checked').value;
+    
+
+    const name = document.getElementById('author-name').value ;
+    const comment = document.getElementById('comment').value ;
+
+
+    
+
+    const reviewData = {
+         suburbId: id,
+         author: { name: name }, 
+         ratings: {
+            lighting: Number(lighting),
+            roads: Number(roads),
+            neighborhood: Number(neighborhood),
+            cleanliness: Number(cleanliness)
+        },
+        comment: comment,
+        createdAt: new Date().toLocaleDateString()
+    }
+
+    fetch('/api/reviews' , {
+        method : 'POST' , 
+        headers : {'Content-type' : 'application/json'} ,
+        body : JSON.stringify(reviewData)
+    })
+    .then(res => res.json())
+    .then(function(result){
+        if(result.success){
+            fetch('/api/reviews/' + id)
+            .then(res => res.json())
+            .then(function(reviews){
+                displayReviews(reviews);
+            });
+        }
+    });
+    
+}

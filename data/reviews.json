@@ -1,6 +1,5 @@
 [
     {
-        "id": "1",
         "suburbId": "1",
         "author": {
             "name": "გიორგი"
@@ -13,5 +12,75 @@
         },
         "comment": "კარგი უბანია, მაგრამ გზები საჭიროებს რემონტს",
         "createdAt": "2025-03-08"
+    },
+    {
+        "suburbId": "1",
+        "author": {
+            "name": "ზაზა"
+        },
+        "ratings": {
+            "lighting": 4,
+            "roads": 2,
+            "neighborhood": 5,
+            "cleanliness": 3
+        },
+        "comment": "საერთო ჯამში კარგი უბანია",
+        "createdAt": "3/12/2026"
+    },
+    {
+        "suburbId": "2",
+        "author": {
+            "name": "მოჯთაბა ხამენეი "
+        },
+        "ratings": {
+            "lighting": 3,
+            "roads": 3,
+            "neighborhood": 5,
+            "cleanliness": 4
+        },
+        "comment": "فونت فارسی",
+        "createdAt": "3/12/2026"
+    },
+    {
+        "suburbId": "7",
+        "author": {
+            "name": "Epstein"
+        },
+        "ratings": {
+            "lighting": 2,
+            "roads": 4,
+            "neighborhood": 4,
+            "cleanliness": 3
+        },
+        "comment": "quite good :)",
+        "createdAt": "3/12/2026"
+    },
+    {
+        "suburbId": "7",
+        "author": {
+            "name": "კონსტანტინ სახამბერიძე"
+        },
+        "ratings": {
+            "lighting": 3,
+            "roads": 4,
+            "neighborhood": 5,
+            "cleanliness": 4
+        },
+        "comment": "ჩემი ჭომა ❤️",
+        "createdAt": "3/12/2026"
+    },
+    {
+        "suburbId": "8",
+        "author": {
+            "name": "კოტე მესხი"
+        },
+        "ratings": {
+            "lighting": 3,
+            "roads": 4,
+            "neighborhood": 4,
+            "cleanliness": 4
+        },
+        "comment": "👍",
+        "createdAt": "3/12/2026"
     }
 ]

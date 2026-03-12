@@ -1,62 +1,20 @@
 [
     {
-        "id" : "8",
-        "name" : "ზასტავა" ,
-        "image" : "zastava.jpg" ,
-        "reviewCount": 0,
+        "id": "8",
+        "name": "ზასტავა",
+        "image": "zastava.jpg",
+        "reviewCount": 1,
         "ratings": {
-            "lighting": 0,
-            "roads": 0,
-            "neighborhood": 0,
-            "cleanliness": 0
+            "lighting": 3,
+            "roads": 4,
+            "neighborhood": 4,
+            "cleanliness": 4
         }
-    }, 
-
-    {
-        "id" : "6" ,
-        "name" : "საფიჩხია" , 
-        "image" : "safichxia.jpg",
-        "reviewCount": 0,
-        "ratings": {
-            "lighting": 0,
-            "roads": 0,
-            "neighborhood": 0,
-            "cleanliness": 0
-        }
-        
-    }, 
-
-    {
-        "id" : "3",
-        "name" : "გორა" ,
-        "image" : "gora.jpg" ,
-        "reviewCount": 0,
-        "ratings": {
-            "lighting": 0,
-            "roads": 0,
-            "neighborhood": 0,
-            "cleanliness": 0
-        }
-    }, 
-
-    {
-        "id" : "7" ,
-        "name" : "ჭომა" , 
-        "image" : "woma.jpg",
-        "reviewCount": 0,
-        "ratings": {
-            "lighting": 0,
-            "roads": 0,
-            "neighborhood": 0,
-            "cleanliness": 0
-        }
-        
     },
-
     {
-        "id" : "4",
-        "name" : "ნიკეა" ,
-        "image" : "nikea.jpg" ,
+        "id": "6",
+        "name": "საფიჩხია",
+        "image": "safichxia.jpg",
         "reviewCount": 0,
         "ratings": {
             "lighting": 0,
@@ -64,26 +22,11 @@
             "neighborhood": 0,
             "cleanliness": 0
         }
-    }, 
-
-    {
-        "id" : "1" ,
-        "name" : "ავანგარდი" , 
-        "image" : "avangardi.png" , 
-        "reviewCount": 0,
-        "ratings": {
-            "lighting": 0,
-            "roads": 0,
-            "neighborhood": 0,
-            "cleanliness": 0
-        }
-        
     },
-
     {
-        "id" : "5" ,
-        "name" : "პასილოკი" , 
-        "image" : "pasiloki.jpg" ,
+        "id": "3",
+        "name": "გორა",
+        "image": "gora.jpg",
         "reviewCount": 0,
         "ratings": {
             "lighting": 0,
@@ -91,13 +34,23 @@
             "neighborhood": 0,
             "cleanliness": 0
         }
-        
     },
-
     {
-        "id" : "2" ,
-        "name" : "ავტოქარხანა" , 
-        "image" : "avtoqarxana.jpg" ,
+        "id": "7",
+        "name": "ჭომა",
+        "image": "woma.jpg",
+        "reviewCount": 2,
+        "ratings": {
+            "lighting": 2.5,
+            "roads": 4,
+            "neighborhood": 4.5,
+            "cleanliness": 3.5
+        }
+    },
+    {
+        "id": "4",
+        "name": "ნიკეა",
+        "image": "nikea.jpg",
         "reviewCount": 0,
         "ratings": {
             "lighting": 0,
@@ -105,6 +58,41 @@
             "neighborhood": 0,
             "cleanliness": 0
         }
-        
+    },
+    {
+        "id": "1",
+        "name": "ავანგარდი",
+        "image": "avangardi.png",
+        "reviewCount": 1,
+        "ratings": {
+            "lighting": 4,
+            "roads": 2,
+            "neighborhood": 5,
+            "cleanliness": 3
+        }
+    },
+    {
+        "id": "5",
+        "name": "პასილოკი",
+        "image": "pasiloki.jpg",
+        "reviewCount": 0,
+        "ratings": {
+            "lighting": 0,
+            "roads": 0,
+            "neighborhood": 0,
+            "cleanliness": 0
+        }
+    },
+    {
+        "id": "2",
+        "name": "ავტოქარხანა",
+        "image": "avtoqarxana.jpg",
+        "reviewCount": 1,
+        "ratings": {
+            "lighting": 3,
+            "roads": 3,
+            "neighborhood": 5,
+            "cleanliness": 4
+        }
     }
 ]
